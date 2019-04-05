@@ -63,7 +63,7 @@ xlim([0, 1])
 legend(legendText, 'Location', 'NorthEast')
 
 subplot(1,2,2)
-ylabel('Kerogen density \rho_k (g/cc)', 'FontUnits','points', 'FontWeight','normal', 'FontSize',labelFontSize,'FontName','Times')
+ylabel('Kerogen density \rho_k (g/cm^3)', 'FontUnits','points', 'FontWeight','normal', 'FontSize',labelFontSize,'FontName','Times')
 xlabel('EasyDL vitrinite reflectance %Ro (%)', 'FontUnits','points', 'FontWeight','normal', 'FontSize',labelFontSize,'FontName','Times')
 set(gca, 'Units','normalized', 'FontUnits','points', 'FontWeight','normal', 'FontSize',tickFontSize,'FontName','Times')
 box on

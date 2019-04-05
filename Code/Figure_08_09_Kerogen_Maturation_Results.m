@@ -103,7 +103,7 @@ tickFontSize = 12;
 
 figure(f1)
 subplot(1,3,1)
-ylabel('Wet kerogen density \rho_k (g/cc)', 'FontUnits','points', 'FontWeight','normal', 'FontSize',labelFontSize,'FontName','Times')
+ylabel('Wet kerogen density \rho_k (g/cm^3)', 'FontUnits','points', 'FontWeight','normal', 'FontSize',labelFontSize,'FontName','Times')
 xlabel('EasyDL vitrinite reflectance %Ro (%)', 'FontUnits','points', 'FontWeight','normal', 'FontSize',labelFontSize,'FontName','Times')
 set(gca, 'Units','normalized', 'FontUnits','points', 'FontWeight','normal', 'FontSize',tickFontSize,'FontName','Times')
 box on

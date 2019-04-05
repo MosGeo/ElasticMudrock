@@ -93,7 +93,7 @@ logIndex = 1:nCols;
 spacing = [0, 0 , 0, 0, 0, 0,0, 0, 0, 0 ,0,0,0];
 width = .11;
 styles = repmat({'k'}, [nCols,1]);
-titles =  {'GR (API)', 'Rho (g/cc)', 'Vp (ft/s)', 'Vs (ft/s)', 'ILD', 'Pe', '\phi (%)', 'TOC (wt%)'};
+titles =  {'GR (API)', 'Rho (g/cm^3)', 'Vp (ft/s)', 'Vs (ft/s)', 'ILD', 'Pe', '\phi (%)', 'TOC (wt%)'};
 [figureHandle, axisHandles] = plotWellLogs(dataToPlot, depthLog,titles, logIndex, [5], styles, spacing, width);
 
 %% Interpolate between XRF and meausurments (XRF POINTS)
@@ -197,13 +197,13 @@ TR = 0:.001:1;
 Ro1Interp =interp1(TR1,Ro1,TR, 'linear', 'extrap');
 Ro2Interp =interp1(TR2,Ro2,TR,  'linear', 'extrap');
 Ro3Interp =interp1(TR3,Ro3,TR,  'linear', 'extrap');
-Ro = (Ro1Interp+Ro2Interp+Ro3Interp)/3;
+RoAll = (Ro1Interp+Ro2Interp+Ro3Interp)/3;
 [F, TRs, Ros] = runPyrolysis(2, 'EasyDL', t,T, A, f, E);
-phiTR = interp1(Ro, TR, Ro);
+phiTR = interp1(RoAll, TR, Ro);
 
 
 kerogenType = 3;
-maxPhi = [.71, .43, .12];
+maxPhis = [.71, .43, .12];
 kerogenNames = {'I', 'II','III'};
 [PhiKerogen] = kerogenPorosityMaxPhi(phiTR,  maxPhis(kerogenType));
 [hcRatio, hcTR] = calcHcRatio(kerogenNames{kerogenType});
@@ -292,13 +292,13 @@ for i = 1: n
 %    phiAlphaMatrix        
 
     % Model rock
-    [kerogenK, kerogenG, kerogenRho, PhiKerogen, TR]  =  modelKerogenShublik(Ro, kerogenK, kerogenG, ...
+    [kerogenKMature, kerogenGMature, kerogenRho, PhiKerogen, TR]  =  modelKerogenShublik(Ro, kerogenK, kerogenG, ...
     fluidK, fluidRho, nan, nan, nan, phiKerogenAlpha, freqType, roModel);
 
     [matrixK, matrixG, matrixRho] = modelMatrix(mineralsK, mineralsG, mineralsRho, fractions,...
     fluidK, fluidRho, phi, phiAlphaMatrix, freqType, minAverageTypeMatrix);
 
-    output =  combineMatrixKerogen(matrixK, matrixG, matrixRho,kerogenK, kerogenG,...
+    output =  combineMatrixKerogen(matrixK, matrixG, matrixRho,kerogenKMature, kerogenGMature,...
        kerogenRho, kerogenPercent, vtiIsoDem, minAverageTypeKerogen,kerogenAlpha);
 
     % Save results
@@ -338,7 +338,7 @@ spacing = [0, 0, .05, 0,0];
 width = .16;
 styles = {'k','k','k','k','k', '-.r','-.r','-.r','-.r','-.r'};
 dataToPlot = [dataToPlot1,dataToPlot2];
-titles = {'Vp (f/s)', 'Vs (f/s)', '\rho (g/cc)', 'Ip (f/s \cdot g/cc)', 'Is (f/s \cdot g/cc)'};
+titles = {'Vp (f/s)', 'Vs (f/s)', '\rho (g/cm^3)', 'Ip (f/s \cdot g/cm^3)', 'Is (f/s \cdot g/cm^3)'};
 [figureHandle, axisHandles] = plotWellLogs(dataToPlot, logDepth,titles, logIndex, [], styles, spacing, width);
 
 % VTI
@@ -391,8 +391,8 @@ xlim(limits); ylim(limits)
 text(limits(1) + percLocationR* diff(limits), limits(2) - percLocationR* diff(limits) ,['R = ', num2str(R(2,1))], 'FontSize', labelFontSize,  'FontName','Times')
 line(limits,limits, 'Color', 'k', 'LineWidth', 2)
 set(gca, 'Units','normalized', 'FontUnits','points', 'FontWeight','normal', 'FontSize',tickFontSize,'FontName','Times')
-ylabel('Modeled Ip (ft/s \cdot g/cc)', 'FontUnits','points', 'FontWeight','normal', 'FontSize',labelFontSize, 'FontName','Times')
-xlabel('Measured Ip (ft/s \cdot g/cc)', 'FontUnits','points', 'FontWeight','normal', 'FontSize',labelFontSize, 'FontName','Times')
+ylabel('Modeled Ip (ft/s \cdot g/cm^3)', 'FontUnits','points', 'FontWeight','normal', 'FontSize',labelFontSize, 'FontName','Times')
+xlabel('Measured Ip (ft/s \cdot g/cm^3)', 'FontUnits','points', 'FontWeight','normal', 'FontSize',labelFontSize, 'FontName','Times')
 xticklabels(cellfun(@num2str, num2cell(xticks), 'UniformOutput', false))
 yticklabels(cellfun(@num2str, num2cell(yticks), 'UniformOutput', false))
 
@@ -412,8 +412,8 @@ xlim(limits); ylim(limits)
 text(limits(1) + percLocationR* diff(limits), limits(2) - percLocationR* diff(limits) ,['R = ', num2str(R(2,1))], 'FontSize', labelFontSize,  'FontName','Times')
 line(limits,limits, 'Color', 'k', 'LineWidth', 2)
 set(gca, 'Units','normalized', 'FontUnits','points', 'FontWeight','normal', 'FontSize',tickFontSize,'FontName','Times')
-ylabel('Modeled Is (ft/s \cdot g/cc)', 'FontUnits','points', 'FontWeight','normal', 'FontSize',labelFontSize, 'FontName','Times')
-xlabel('Measured Is (ft/s \cdot g/cc)', 'FontUnits','points', 'FontWeight','normal', 'FontSize',labelFontSize, 'FontName','Times')
+ylabel('Modeled Is (ft/s \cdot g/cm^3)', 'FontUnits','points', 'FontWeight','normal', 'FontSize',labelFontSize, 'FontName','Times')
+xlabel('Measured Is (ft/s \cdot g/cm^3)', 'FontUnits','points', 'FontWeight','normal', 'FontSize',labelFontSize, 'FontName','Times')
 
 xticklabels(cellfun(@num2str, num2cell(xticks), 'UniformOutput', false))
 yticklabels(cellfun(@num2str, num2cell(yticks), 'UniformOutput', false))

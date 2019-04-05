@@ -39,7 +39,7 @@ xlim([min(Ro) max(Ro)])
 labelFontSize = 14;
 tickFontSize = 12;
 xlabel('Measured vitrinite reflectance %Ro (%)', 'FontUnits','points', 'FontWeight','normal', 'FontSize',labelFontSize,'FontName','Times')
-ylabel('Kerogen density \rho_k (g/cc)', 'FontUnits','points', 'FontWeight','normal', 'FontSize',labelFontSize, 'FontName','Times')
+ylabel('Kerogen density \rho_k (g/cm^3)', 'FontUnits','points', 'FontWeight','normal', 'FontSize',labelFontSize, 'FontName','Times')
 set(gca, 'Units','normalized', 'FontUnits','points', 'FontWeight','normal', 'FontSize',tickFontSize,'FontName','Times')
 
 % Type I
