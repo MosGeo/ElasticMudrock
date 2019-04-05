@@ -13,7 +13,7 @@ This repository contains all the required code and data to reproduce all the fig
 - TernPlot: For plotting ternariy diagrams (https://github.com/alchemyst/ternplot)
 - DGSA: for senstivity analysis (https://github.com/SCRFpublic/DGSA)
 
-## More information
+## Suggestions?
 Please contact me for more information and suggestions.
 
 # Acknowledgements
