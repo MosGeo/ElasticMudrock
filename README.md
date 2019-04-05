@@ -5,7 +5,7 @@ This repository contains all the required code and data to reproduce all the fig
 # What is included
 - A dataset for one well used as a case study
 - Shape files for the well location
-- Rock physics re-usable functions for modeling organic-rich mudrocks
+- Rock physics and petroleum modeleing related re-usable functions for modeling organic-rich mudrocks
 - Specific scripts to reproduce all the figures included in the manuscript
 
 ## External tools used (included in the folder already)
