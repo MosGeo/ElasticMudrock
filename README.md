@@ -16,3 +16,5 @@ This repository contains all the required code and data to reproduce all the fig
 ## More information
 Please contact me for more information and suggestions.
 
+# Acknowledgements
+We would like to thank the Basin and Petroleum System Modeling Group at Stanford University, Stanford Rock Physics & Borehole Geophysics Project, Stanford Center for Earth Resources Forecasting, and Saudi Aramco for their support and valuables discussions. We would also like to thank the Dean of School of Earth, Energy, and Environmental Sciences at Stanford University, Prof. Steve Graham, for funding. Finally, we would like to thank Alan Burnham for his valuable guidance.
