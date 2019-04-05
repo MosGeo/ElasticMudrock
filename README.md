@@ -14,5 +14,5 @@ This repository contains all the required code and data to reproduce all the fig
 - DGSA: for senstivity analysis (https://github.com/SCRFpublic/DGSA)
 
 ## More information
-Please contact me for more information and suggestions
+Please contact me for more information and suggestions.
 
