@@ -2,6 +2,10 @@
 
 This repository contains all the required code and data to reproduce all the figures illustrated in the manuscript "A thermal-maturation dependent elastic rock physics template for organic-rich mudrocks: Construction, sensitivity analysis, and practicalities".
 
+<div align="center">
+    <img width=800 src="https://github.com/MosGeo/Strata/blob/master/ReadmeFiles/Example.png" alt="Realizations" title="Multiple realizations"</img>
+</div>
+
 # What is included
 - A dataset for one well used as a case study
 - Shape files for the well location
